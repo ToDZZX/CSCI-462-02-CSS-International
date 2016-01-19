@@ -1,4 +1,7 @@
 Potential Scrum Trackers:
 
-JIRA https://www.atlassian.com/software/jira/pricing?tab=host-in-the-cloud
+JIRA  https://www.atlassian.com/software/jira/pricing?tab=host-in-the-cloud
+Yodiz http://www.yodiz.com/pricing.html
+
+Others: http://agilescout.com/best-agile-scrum-tools/
 
