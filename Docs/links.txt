@@ -14,6 +14,6 @@ Google Site:          https://sites.google.com/site/cssinternational462/products
 
 **Forms manager:**
 Forms:                http://codecanyon.net/item/easy-forms-advanced-form-builder-and-manager/full_screen_preview/14176957?ref=jqueryrain&ref=jqueryrain&clickthrough_id=618720130&redirect_back=true
-Regex expressions
-for form validation:  https://gist.github.com/nerdsrescueme/1237767
+Regex expressions for
+    form validation:  https://gist.github.com/nerdsrescueme/1237767
 
