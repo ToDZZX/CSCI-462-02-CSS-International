@@ -11,6 +11,7 @@ Forms:                https://www.google.com/forms/about/
 Spreadsheet -> Docs:  https://opensourcehacker.com/2013/01/21/script-for-generating-google-documents-from-google-spreadsheet-data-source/
 Docs -> PDF:          https://pdf.wondershare.com/pdf-creating-tips/create-pdf-with-google-docs.html
 Google Site:          https://sites.google.com/site/cssinternational462/products-services
+Tutorial for sites:   http://www.instructables.com/id/Make-A-Basic-WebSite-using-Google-Sites/step4/Sites/
 
 **Forms manager:**
 Forms:                http://codecanyon.net/item/easy-forms-advanced-form-builder-and-manager/full_screen_preview/14176957?ref=jqueryrain&ref=jqueryrain&clickthrough_id=618720130&redirect_back=true
