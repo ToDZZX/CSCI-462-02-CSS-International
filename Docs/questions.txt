@@ -1,3 +1,11 @@
 Questions for CSS International 1/25:
 
-1.
+1. (Not exactly a "question") Brief descriptive overview of what the current process is, and what the desired final product should be.
+
+2. What are three (or more) things that are the most important to include in your new website?
+
+3. What list of questions are currently being used on your forms? 
+
+4. Are there any website layouts that you prefer? (aestetic orientation, etc.)
+
+5. Technical skill level of your current employees? (for maintenance)
