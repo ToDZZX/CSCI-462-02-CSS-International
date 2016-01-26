@@ -1,3 +1,5 @@
+=== Email 1
+
 Questions for CSS International 1/25:
 
 1. (Not exactly a "question") Brief descriptive overview of what the current process is, and what the desired final product should be.
@@ -10,6 +12,8 @@ Questions for CSS International 1/25:
 
 5. Technical skill level of your current employees? (for maintenance)
 
-------------------
+Questions for CSS International 1/26
 
-1. Do they need to fill in government PDF? Or can they fill in Google Form with the same questions which fills in the government form automatically?
+1. Do they need to fill in government PDF? The alternative is for them to fill the information in on the website and then the website populates the government PDF.
+
+-------------------------
