@@ -1,0 +1,53 @@
+Steps to Create Website:
+
+Setup Site:
+x. HTML5 Template for layout
+
+x. Add forms for people to fill in (HTML5)
+
+x. Multiple pages, multiple forms (HTML5 and Javascript)
+
+x. Make page not have to reload (AJAX)
+
+---
+
+Beautify:
+x. Make site dynamic; work on Desktop, Tablet, Phone (*Technology)
+
+x. Make site look good (CSS and Bootstrap)
+
+---
+
+Server:
+x. Setup server (*Node.js)
+
+x. Setup communication with server (*AngularJS OR *jQuery)
+
+x. Make the forms communicate with the server (*Technology)
+
+---
+
+Database:
+x. Setup database (Oracle, MSSQL, MySQL)
+
+x. Setup communication between server and database (*Technology)
+
+---
+
+PDF:
+x. Convert Database info, or form info, to PDF (*Technology?)
+
+---
+
+x. Set-up separate part of website for CSS to use in order to:
+    x. Monitor form progress
+    x. View contractor information
+
+---
+
+Extra:
+x. Make website scalable;
+
+x. Make database scalable?
+
+x. Make website able to communicate with Google Docs
