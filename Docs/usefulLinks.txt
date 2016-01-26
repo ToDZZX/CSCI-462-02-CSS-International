@@ -1,0 +1,13 @@
+**CSS International Website:**
+https://www.linkedin.com/company/css-international
+
+**Website Templates:**
+Simple form template: http://www.eightonefive.com/2011/10/20/create-a-simple-html5-contact-form/
+Bootstrap templates:  https://www.freshdesignweb.com/free-bootstrap-templates/
+Bootstrap templates:  http://startbootstrap.com/template-categories/full-websites/
+
+**Forms manager:**
+Forms:                http://codecanyon.net/item/easy-forms-advanced-form-builder-and-manager/full_screen_preview/14176957?ref=jqueryrain&ref=jqueryrain&clickthrough_id=618720130&redirect_back=true
+Regex expressions for
+    form validation:  https://gist.github.com/nerdsrescueme/1237767
+
