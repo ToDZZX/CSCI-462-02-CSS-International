@@ -3,7 +3,3 @@ Potential technologies:
 Frontend: HTML5, CSS, Javascript, Bootstrap, AJAX
 Backend: jQuery, PHP?
 Database: MSSQL, Oracle?
-
-Alternative:
-
-Google Forms -> Google Documents
