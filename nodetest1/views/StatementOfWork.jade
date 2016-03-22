@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    style
+      include CSSInternational.css
+    link(rel='stylesheet', type='text/css', href='CSSInternational.css')
+    script(src='//code.jquery.com/jquery.min.js')
+    include Navigation.jade
+  #nav
+  body
+    .page
+      .main
+        p
+          | The CSS Statement of Work (SOW) provides details pertaining to aspects of your assignment including but not limited to: timeline, pricing, expense procedures and reporting structure of a specified project. Every SOW contains information relevant to the current project that a subcontractor has been assigned.
+          br
+          br
+          | Each time you accept a new assignment with CSS, a new SOW must be completed.
+          br
+          br
+          b Note:
+          |  The SOW must be countersigned and submitted a minimum 
+          b five (5) days
+          |  prior to performing any services on behalf of CSS.
+        br
+        br
+        form(action='', enctype='multipart/form-data', method='post')
+          | Upload Form:
+          br
+          input(type='file', name='datafile', size='40')
+          input(type='submit', value='Send')
+

@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    style
+      include CSSInternational.css
+    link(rel='stylesheet', type='text/css', href='CSSInternational.css')
+    script(src='//code.jquery.com/jquery.min.js')
+    include Navigation.jade
+  #nav
+  body
+    .page
+      .main
+        p
+          | CSS requires vendors and all subcontractors to provide verification of General Liability and Worker’s Compensation Insurance coverage to include listing CSS International, Inc. and the assigned Client’s Name as additional insureds within 
+          b ten (10) business days
+          |  of accepting an assignment.
+        p
+          b Note:
+          |  CSS reserves the right to hold payments to vendors who have not provided the proper proof of insurance.
+        br
+        br
+        #column1
+          | Download Form:
+          br
+          a.button(href='public/forms/CSS_-_Request_for_COI_Letter.docx', download='') Download
+          br
+          br
+        #column2
+          form(action='', enctype='multipart/form-data', method='post')
+            | Upload Form:
+            br
+            input(type='file', name='datafile', size='40')
+            input(type='submit', value='Send')
+

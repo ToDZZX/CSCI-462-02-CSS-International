@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	h
+		Test
+	body
+		p !{userlist}
+		- for( var i = 0; i < results.length; i++ ) {
+			- var textbody = results[i];
+			li= textbody.name
+		- }
+		p !{userlist}2

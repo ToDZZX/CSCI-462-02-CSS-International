@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    style
+      include CSSInternational.css
+    link(rel='stylesheet', type='text/css', href='CSSInternational.css')
+    script(src='//code.jquery.com/jquery.min.js')
+    include Navigation.jade
+  #nav
+  body
+    .page
+      .main
+        p
+          | All subcontractors of CSS are required to complete the Subcontractor Contact form.  This form enables us to better utilize our resources when future projects opportunities become available.  Your information will be kept completely confidential and will only be accessible to members of management as needed.
+          br
+          br
+          | Upload the completed form a minimum 
+          b five (5) days
+          |  prior to performing any work on behalf of CSS.
+        br
+        br
+        #column1
+          | Download Form:
+          br
+          a.button(href='public/forms/Subcontractor_Contact_Form.pdf', download='') Download
+          br
+          br
+        #column2
+          form(action='', enctype='multipart/form-data', method='post')
+            | Upload Form:
+            br
+            input(type='file', name='datafile', size='40')
+            input(type='submit', value='Send')
+

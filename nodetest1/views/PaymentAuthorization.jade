@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    style
+      include CSSInternational.css
+    link(rel='stylesheet', type='text/css', href='CSSInternational.css')
+    script(src='//code.jquery.com/jquery.min.js')
+    include Navigation.jade
+  #nav
+  body
+    .page
+      .main
+        p
+          | CSS offers vendors the option of receiving payments via traditional methods (ie. check) or via Electronic Funds Transfer
+          | (ie. ACH and Wire Transfer).  Payments are made semi-monthly in accordance with the reimbursement schedule contained in the Expense Policy manual.
+        p
+          b Electronic Payment Program
+          br
+          |                 To enroll in the Electronic Payment Program:
+          br
+          | 				Complete, sign and return the fully executed document along with a scanned copy of a voided
+          | 				check or direct deposit instructions on your banks letterhead.
+        p
+          b Note:
+          |  these must be submitted at 
+          u minimum
+          |  five (5) days prior to performing any work on behalf of CSS.
+        br
+        br
+        #column1
+          | Download Form:
+          br
+          a.button(href='public/forms/Vendor_Direct_Deposit_Authorization.docx', download='') Download
+          br
+          br
+        #column2
+          form(action='', enctype='multipart/form-data', method='post')
+            | Upload Form:
+            br
+            input(type='file', name='datafile', size='40')
+            input(type='submit', value='Send')
+

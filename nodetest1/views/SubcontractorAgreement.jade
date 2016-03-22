@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    style
+      include CSSInternational.css
+    link(rel='stylesheet', type='text/css', href='CSSInternational.css')
+    script(src='//code.jquery.com/jquery.min.js')
+    include Navigation.jade
+  #nav
+  body
+    .page
+      .main
+        p
+          | Subcontractors seeking to do business with CSS are required to complete and return a
+          | Subcontractor Agreement before performing any services on behalf of CSS at our client site.
+        p Please download, complete, and sign this form.  Upload the finished form here.
+        br
+        br
+        #column1
+          | Download Form:
+          br
+          a.button(href='public/forms/subcontractor-agreement.pdf', download='') Download
+          br
+          br
+        #column2
+            | Upload Form:
+            br
+          form(action='/upload', method='post', enctype='multipart/form-data')
+            input(type='file', name='file', id='file', size='40')
+            input(type='submit', value='Send')
+
