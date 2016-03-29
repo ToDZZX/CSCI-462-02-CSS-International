@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', type='text/css', href='CSSInternational.css')
+    script(src='//code.jquery.com/jquery.min.js')
+    script.
+      $.get("Navigation.html", function(data){
+      $("#nav").replaceWith(data);
+      });
+  #nav
+  body
+    .page
+      .main
+        table
+          tr
+            th#ContractorID Contractor ID
+            th#ContractID Contract ID
+            th#Date Date
+            th Subcontractor Agreement
+            th Subcontractor Contact
+            th Statement of Work
+            th W-9
+            th General Liability
+            th Payment Authorization
+        #norm
+          a.button-bar.button2.prev(href='“W9.html“') Previous
+          a.button-bar.button2.next(href='“PaymentAuthorization.html“') Next
+
