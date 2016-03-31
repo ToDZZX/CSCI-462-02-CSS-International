@@ -11,17 +11,28 @@ html
   body
     .page
       .main
-        table
-          tr
-            th#ContractorID Contractor ID
-            th#ContractID Contract ID
-            th#Date Date
-            th Subcontractor Agreement
-            th Subcontractor Contact
-            th Statement of Work
-            th W-9
-            th General Liability
-            th Payment Authorization
+        table#keywords(cellspacing='0', cellpadding='0')
+          thead
+            tr
+              th
+                span Contractor ID
+              th
+                span Contract ID
+              th
+                span Subcontractor Agreement
+              th
+                span Subcontractor Contact
+              th
+                span Statement of Work
+              th
+                span W-9
+              th
+                span General Liability
+              th
+                span Payment Authorization
+              th
+                span Date
+          tbody
         #norm
           a.button-bar.button2.prev(href='“W9.html“') Previous
           a.button-bar.button2.next(href='“PaymentAuthorization.html“') Next
