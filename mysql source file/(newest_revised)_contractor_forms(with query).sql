@@ -28,4 +28,9 @@ insert into gen_liability_workers values (888, 8, 114, 'datecompleted', 'Company
 insert into authorization_electronic_payments values (888, 6, 129, 'financial things', 'financial city', 'SC', 29456, 'secure', 'accountnumber', 'CompanyName', 'company street', 'companycity', 'SC', '29456' , 'company name', 'le email', '11-12-1998', 'C:Desktop\form12');
 
 
+
+
+
+
+
 select subcontractor_agreement.sagreement_form_path, subcontractor_contact_form.scontact_form_path, statement_of_work.sow_form_path, w9_form.w9_form_path, gen_liability_workers.liability_form_path, authorization_electronic_payments.payment_form_path from subcontractor_contact_form inner join subcontractor_agreement on subcontractor_agreement.contract_ID=subcontractor_contact_form.contract_ID inner join statement_of_work ON subcontractor_agreement.contract_ID=statement_of_work.contract_ID inner join w9_form ON subcontractor_agreement.contract_ID=w9_form.contract_ID inner join gen_liability_workers ON subcontractor_agreement.contract_ID=gen_liability_workers.contract_ID inner join authorization_electronic_payments on subcontractor_agreement.contract_ID=gen_liability_workers.contract_ID;
