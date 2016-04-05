@@ -1,12 +1,11 @@
 doctype html
 html
   head
+    style
+      include CSSInternational.css
     link(rel='stylesheet', type='text/css', href='CSSInternational.css')
     script(src='//code.jquery.com/jquery.min.js')
-    script.
-      $.get("Navigation.html", function(data){
-      $("#nav").replaceWith(data);
-      });
+    include Navigation.jade
   #nav
   body
     .page
@@ -34,6 +33,4 @@ html
                 span Date
           tbody
         #norm
-          a.button-bar.button2.prev(href='“W9.html“') Previous
-          a.button-bar.button2.next(href='“PaymentAuthorization.html“') Next
 
