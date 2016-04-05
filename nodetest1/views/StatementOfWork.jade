@@ -10,8 +10,8 @@ html
   body
     .page
       .main
-        p
-          | The CSS Statement of Work (SOW) provides details pertaining to aspects of your assignment including but not limited to: timeline, pricing, expense procedures and reporting structure of a specified project. Every SOW contains information relevant to the current project that a subcontractor has been assigned.
+        h2 Statement of Work
+        p The CSS Statement of Work (SOW) provides details pertaining to aspects of your assignment including but not limited to: timeline, pricing, expense procedures and reporting structure of a specified project. Every SOW contains information relevant to the current project that a subcontractor has been assigned.
           br
           br
           | Each time you accept a new assignment with CSS, a new SOW must be completed.
@@ -23,9 +23,15 @@ html
           |  prior to performing any services on behalf of CSS.
         br
         br
-        form(action='', enctype='multipart/form-data', method='post')
-          | Upload Form:
-          br
-          input(type='file', name='datafile', size='40')
-          input(type='submit', value='Send')
+        #column1
+        #column2
+          form(action='', enctype='multipart/form-data', method='post')
+            span(style='float: right') Upload Form:
+            br
+            input.button(type='submit', style='top: 5px; float: right', value='Send')
+            input#file.inputfile(type='file', name='datafile', size='40')
+            label.button(for='file', style='top: 7px; float: right') Choose file
+        #norm
+          a.button-bar.button2.prev(href='“W9.html“') Previous
+          a.button-bar.button2.next(href='“ExpensePolicy.jade') Next
 

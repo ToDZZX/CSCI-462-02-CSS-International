@@ -10,8 +10,8 @@ html
   body
     .page
       .main
-        p
-          | All subcontractors of CSS are required to complete the Subcontractor Contact form.  This form enables us to better utilize our resources when future projects opportunities become available.  Your information will be kept completely confidential and will only be accessible to members of management as needed.
+        h2 Subcontractor Contact
+        p All subcontractors of CSS are required to complete the Subcontractor Contact form.  This form enables us to better utilize our resources when future projects opportunities become available.  Your information will be kept completely confidential and will only be accessible to members of management as needed.
           br
           br
           | Upload the completed form a minimum 
@@ -26,9 +26,14 @@ html
           br
           br
         #column2
+          #column2
           form(action='', enctype='multipart/form-data', method='post')
-            | Upload Form:
+            span(style='float: right') Upload Form:
             br
-            input(type='file', name='datafile', size='40')
-            input(type='submit', value='Send')
+            input.button(type='submit', style='top: 5px; float: right', value='Send')
+            input#file.inputfile(type='file', name='datafile', size='40')
+            label.button(for='file', style='top: 7px; float: right') Choose file
+        #norm
+          a.button-bar.button2.prev(href='“SubcontractorAgreement.jade“') Previous
+          a.button-bar.button2.next(href='“W9.jade“') Next
 

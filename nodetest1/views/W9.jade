@@ -10,8 +10,8 @@ html
   body
     .page
       .main
-        p
-          | All vendors working with CSS are required to complete and return a W-9 form. These forms are used to certify the accuracy of taxpayer identification number (TIN) provided.
+        h2 W-9
+        p All vendors working with CSS are required to complete and return a W-9 form. These forms are used to certify the accuracy of taxpayer identification number (TIN) provided.
           br
           br
           | Print, complete and sign the W-9 form at minimum 
@@ -26,9 +26,14 @@ html
           br
           br
         #column2
+          #column2
           form(action='', enctype='multipart/form-data', method='post')
-            | Upload Form:
+            span(style='float: right') Upload Form:
             br
-            input(type='file', name='datafile', size='40')
-            input(type='submit', value='Send')
+            input.button(type='submit', style='top: 5px; float: right', value='Send')
+            input#file.inputfile(type='file', name='datafile', size='40')
+            label.button(for='file', style='top: 7px; float: right') Choose file
+        #norm
+          a.button-bar.button2.prev(href='“SubcontractorContact.jade“') Previous
+          a.button-bar.button2.next(href='“GeneralLiability.jade“') Next
 

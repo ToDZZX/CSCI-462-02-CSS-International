@@ -10,9 +10,8 @@ html
   body
     .page
       .main
-        p
-          | CSS offers vendors the option of receiving payments via traditional methods (ie. check) or via Electronic Funds Transfer
-          | (ie. ACH and Wire Transfer).  Payments are made semi-monthly in accordance with the reimbursement schedule contained in the Expense Policy manual.
+        h2 Payment Authorization
+        p CSS offers vendors the option of receiving payments via traditional methods (ie. check) or via Electronic Funds Transfer (ie. ACH and Wire Transfer).  Payments are made semi-monthly in accordance with the reimbursement schedule contained in the Expense Policy manual.
         p
           b Electronic Payment Program
           br
@@ -34,9 +33,14 @@ html
           br
           br
         #column2
+          #column2
           form(action='', enctype='multipart/form-data', method='post')
-            | Upload Form:
+            span(style='float: right') Upload Form:
             br
-            input(type='file', name='datafile', size='40')
-            input(type='submit', value='Send')
+            input.button(type='submit', style='top: 5px; float: right', value='Send')
+            input#file.inputfile(type='file', name='datafile', size='40')
+            label.button(for='file', style='top: 7px; float: right') Choose file
+        #norm
+          a.button-bar.button2.prev(href='“GeneralLiability.jade“') Previous
+          a.button-bar.button2.next(href='“StatementOfWork.jade“') Next
 

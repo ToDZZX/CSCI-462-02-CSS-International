@@ -10,9 +10,8 @@ html
   body
     .page
       .main
-        p
-          | Subcontractors seeking to do business with CSS are required to complete and return a
-          | Subcontractor Agreement before performing any services on behalf of CSS at our client site.
+        h2 Subcontractor Agreement
+        p Subcontractors seeking to do business with CSS are required to complete and return a Subcontractor Agreement before performing any services on behalf of CSS at our client site.
         p Please download, complete, and sign this form.  Upload the finished form here.
         br
         br
@@ -23,9 +22,12 @@ html
           br
           br
         #column2
-            | Upload Form:
+          form(action='', enctype='multipart/form-data', method='post')
+            span(style='float: right') Upload Form:
             br
-          form(action='/upload', method='post', enctype='multipart/form-data')
-            input(type='file', name='file', id='file', size='40')
-            input(type='submit', value='Send')
+            input.button(type='submit', style='top: 5px; float: right', value='Send')
+            input#file.inputfile(type='file', name='datafile', size='40')
+            label.button(for='file', style='top: 7px; float: right') Choose file
+        #norm
+          a.button-bar.button2.next(href='“SubcontractorContact.jade“') Next
 
