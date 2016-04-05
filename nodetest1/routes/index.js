@@ -211,7 +211,7 @@ router.get('/PaymentAuthorization', function(req, res) {
 	});
 });
 
-router.get('/TimeAndExpense', function(req, res) {
+router.get('/ExpensePolicy', function(req, res) {
 	
 	//var collection = con.get('usercollection');
 	var selectQuery = 'SELECT * FROM employees';
@@ -261,7 +261,7 @@ router.get('/Company', function(req, res) {
 	});
 });
 
-router.get('/Forms', function(req, res) {
+router.get('/FormPage', function(req, res) {
 	
 	//var collection = con.get('usercollection');
 	var selectQuery = 'SELECT * FROM employees';
