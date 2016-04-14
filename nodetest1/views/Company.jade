@@ -10,13 +10,13 @@ html
   body
     .page
       .main
-        table#keywords(cellspacing='0', cellpadding='0')
+        table#keywords(cellspacing='10', cellpadding='0')
           thead
             tr
               th
-                span Contractor ID
-              th
                 span Contract ID
+              th
+                span Contractor Name
               th
                 span Subcontractor Agreement
               th
@@ -32,5 +32,59 @@ html
               th
                 span Date
           tbody
+            tr
+              - for( var i = 0; i < results.length; i++ ) {
+                - var contrID = results[i].contract_ID;
+                - var contrName = results[i].contact_name
+                - var sagreePath = results[i].sagreement_form_path
+                - var scontaactPath = results[i].scontact_form_path
+                - var sowPath = results[i].sow_form_path
+                - var w9Path = results[i].w9_form_path
+                - var liabilityPath = results[i].liability_form_path
+                - var paymentPath = results[i].payment_form_path
+                - var datee = results[i].date
+                td 
+                  !{contrID}
+                td
+                  !{contrName}
+                td
+                  -if (typeof scontaactPath !== 'undefined' && scontaactPath)
+                    a.button(href='public/forms/subcontractor-agreement.pdf', download='') Download
+                  -else
+                    p Null
+                td 
+                  -if (typeof sagreePath !== 'undefined' && sagreePath)
+                    a.button(href='public/forms/subcontractor-agreement.pdf', download='') Download
+                  -else
+                    p Null
+                td 
+                  -if (typeof scontaactPath !== 'undefined' && scontaactPath)
+                    a.button(href='public/forms/subcontractor-agreement.pdf', download='') Download
+                  -else
+                    p Null
+                td
+                  -if (typeof sowPath !== 'undefined' && sowPath)
+                    a.button(href='public/forms/subcontractor-agreement.pdf', download='') Download
+                  -else
+                    p Null
+                td
+                  -if (typeof w9Path !== 'undefined' && w9Path)
+                    a.button(href='public/forms/subcontractor-agreement.pdf', download='') Download
+                  -else
+                    p Null
+                td 
+                  -if (typeof liabilityPath !== 'undefined' && liabilityPath)
+                    a.button(href='public/forms/subcontractor-agreement.pdf', download='') Download
+                  -else
+                    p Null
+                td
+                  -if (typeof paymentPath !== 'undefined' && paymentPath)
+                    a.button(href='public/forms/subcontractor-agreement.pdf', download='') Download
+                  -else
+                    p Null
+                td
+                  !{datee}
+                tr
+              - }
         #norm
 
