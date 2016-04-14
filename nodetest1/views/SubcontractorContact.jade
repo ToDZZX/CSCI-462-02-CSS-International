@@ -19,20 +19,58 @@ html
           |  prior to performing any work on behalf of CSS.
         br
         br
-        #column1
-          | Download Form:
+        form
+          Social Security Number:
           br
-          a.button(href='public/forms/Subcontractor_Contact_Form.pdf', download='') Download
+          input#SSN(type='number')
+          br
+          Federal TaxID/EIN:
+          br
+          input#TaxID(type='number')
+          br
+          Company Name:
+          br
+          input#CompanyName(type='text')
+          br
+          Company Contact:
+          br
+          input#CompanyContact(type='text')
+          br
+          Cell Phone:
+          br
+          input#Cell(type='number')
+          br
+          Alternative Phone:
+          br
+          input#AltPhone(type='number')
+          br
+          Emai Address:
+          br
+          input#Email Address(type='text')
           br
           br
-        #column2
-          #column2
-          form(action='', enctype='multipart/form-data', method='post')
-            span(style='float: right') Upload Form:
-            br
-            input.button(type='submit', style='top: 5px; float: right', value='Send')
-            input#file.inputfile(type='file', name='datafile', size='40')
-            label.button(for='file', style='top: 7px; float: right') Choose file
+          b Billing Address:
+          Address 1:
+          br
+          input#Address1(type='text')
+          br
+          Address 2:
+          br
+          input#Address2(type='text')
+          br
+          City:
+          br
+          input#City(type='text')
+          br
+          State:
+          br
+          input#State(type='text')
+          br
+          Company Contact:
+          br
+          input#Zipcode(type='number')
+          input#submit(type='submit')
+
         #norm
           a.button-bar.button2.prev(href='SubcontractorAgreement') Previous
           a.button-bar.button2.next(href='W9') Next
