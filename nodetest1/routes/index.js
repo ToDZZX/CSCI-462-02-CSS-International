@@ -341,6 +341,32 @@ router.post('/upload', function(req, res) {
 	console.dir(req.riles);
 });
 
+router.post('/download', function(req, res) {
+    var fstream;
+    req.pipe(req.busboy);
+    req.busboy.on('file', function (fieldname, file, filename) {
+        console.log("Downloading: " + filename);
+        fstream = fs.createWriteStream((__dirname.split("\\routes"))[0] + '/private/tmp/' + filename);
+        file.pipe(fstream);
+		var key = 'EncryptSecretKey1423';
+		var input = path.resolve(__dirname+'/../private/tmp/' + filename);
+		var output = path.resolve(__dirname+'/../private/tmp/file.dat');// + filename);
+		var options = { algorithm : 'aes256' };
+		encryptor.encryptFile(input, output, key, options, function(err) {
+			//res.download(output);   
+		});
+		/* Delete file off of server */
+		//var filePath = __dirname+'/../tmp/private/' + filename; 
+		//fs.unlinkSync(filePath);
+		var filePath = __dirname+'/../private/tmp/' + filename; 
+        fstream.on('close', function () {
+			fs.unlinkSync(filePath);
+            res.redirect('back');
+        });
+    });
+	console.dir(req.riles);
+});
+
 router.get('/uploadFileFunc', function(req, res) {
 	fs.readFile(req.files.datafile.path, function (err, data) { 
 		var newPath = __dirname + "/uploads/" + datafile.name;

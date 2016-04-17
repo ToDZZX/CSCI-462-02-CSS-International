@@ -20,56 +20,59 @@ html
         br
         br
         form
-          Social Security Number:
+          | Social Security Number:
           br
           input#SSN(type='number')
           br
-          Federal TaxID/EIN:
+          | Federal TaxID/EIN:
           br
           input#TaxID(type='number')
           br
-          Company Name:
+          | Company Name:
           br
           input#CompanyName(type='text')
           br
-          Company Contact:
+          | Company Contact:
           br
           input#CompanyContact(type='text')
           br
-          Cell Phone:
+          | Cell Phone:
           br
           input#Cell(type='number')
           br
-          Alternative Phone:
+          | Alternative Phone:
           br
           input#AltPhone(type='number')
           br
-          Emai Address:
+          | Email Address:
           br
-          input#Email Address(type='text')
+          input#EmailAddress(type='text')
           br
           br
-          b Billing Address:
-          Address 1:
+          br
+          | Billing Address:
+          br
+          | Address 1:
           br
           input#Address1(type='text')
           br
-          Address 2:
+          | Address 2:
           br
           input#Address2(type='text')
           br
-          City:
+          | City:
           br
           input#City(type='text')
           br
-          State:
+          | State:
           br
           input#State(type='text')
           br
-          Company Contact:
+          | Company Contact:
           br
           input#Zipcode(type='number')
-          input#submit(type='submit')
+          br
+          input.button(type='submit', style='top: 5px; float: left', value='Submit')
 
         #norm
           a.button-bar.button2.prev(href='SubcontractorAgreement') Previous
