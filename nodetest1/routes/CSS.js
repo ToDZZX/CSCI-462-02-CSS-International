@@ -78,6 +78,54 @@ router.get('/NewContract', function(req, res) {
 	});
 });
 
+router.get('/createContract', function(req, res) {
+	
+	var newID = crypto.randomBytes(6).toString('hex');
+	var new1 = crypto.randomBytes(8).toString('hex');
+	var new2 = crypto.randomBytes(8).toString('hex');
+	var new3 = crypto.randomBytes(8).toString('hex');
+	var new4 = crypto.randomBytes(8).toString('hex');
+	var new5 = crypto.randomBytes(8).toString('hex');
+	var new6 = crypto.randomBytes(8).toString('hex');
+	
+	var insertquery1 = "INSERT INTO subcontractor_agreement (`contract_ID`, `form_instance_ID`) VALUES ('" + newID + "','" + new1 + "')"; //create query string to input
+	var insertquery2 = "INSERT INTO subcontractor_contact_form (`contract_ID`, `form_instance_ID`) VALUES ('" + newID + "','" + new2 +  "')"; //create query string to input
+	var insertquery3 = "INSERT INTO statement_of_work (`contract_ID`, `form_instance_ID`) VALUES ('" + newID + "','" + new3 + "')"; //create query string to input
+	var insertquery4 = "INSERT INTO w9_form (`contract_ID`, `form_instance_ID`) VALUES ('" + newID + "','" + new4 + "')"; //create query string to input
+	var insertquery5 = "INSERT INTO gen_liability_workers (`contract_ID`, `form_instance_ID`) VALUES ('" + newID + "','" + new5 +  "')"; //create query string to input
+	var insertquery6 = "INSERT INTO authorization_electronic_payments (`contract_ID`, `form_instance_ID`) VALUES ('" + newID + "','" + new6 +  "')"; //create query string to input
+	
+	
+	con.query(insertquery1, function(err, rows) { //subcontractor agreement
+	console.log('Inserting ' + contract_ID + ' into the contract_ID field of subcontractform');
+	});
+	
+	con.query(insertquery2, function(err, rows) { //subcontractor contact info
+		console.log('Inserting ' + contract_ID + ' into the contract_ID field of subcontract contact');
+	});
+	
+	
+	con.query(insertquery3, function(err, rows) { //SOW
+		console.log('Inserting ' + contract_ID + ' into the contract_ID field of sow');
+	});
+	
+	
+	con.query(insertquery4, function(err, rows) { //w9
+		console.log('Inserting ' + contract_ID + ' into the contract_ID field of w9'); 
+	});
+	
+	
+	con.query(insertquery5, function(err, rows) { //gen reliability
+		console.log('Inserting ' + contract_ID + ' into the contract_ID field of general reliability'); 
+	});
+	
+	
+	con.query(insertquery6, function(err, rows) { //electronic payment authorization 
+		console.log('Inserting ' + contract_ID + ' into the contract_ID field of payment authorization');
+		res.redirect('back');    
+	}); 
+});
+
 router.post('/download', function(req, res) {
     var fstream;
     req.pipe(req.busboy);
