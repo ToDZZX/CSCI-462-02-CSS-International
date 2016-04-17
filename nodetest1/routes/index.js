@@ -8,7 +8,6 @@ var fs = require('fs');
 
 //app.set('prev', 'here');
 //console.log(app.get('prev'));
-console.log('Server started.');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -237,85 +236,6 @@ router.get('/ExpensePolicy', function(req, res) {
 	  
 	});
 });
-
-router.get('/Company', function(req, res) {
-	
-	//var collection = con.get('usercollection');
-	var selectQuery = 'select subcontractor_contact_form.contract_ID, subcontractor_contact_form.contact_name, subcontractor_agreement.sagreement_form_path, subcontractor_contact_form.scontact_form_path, statement_of_work.sow_form_path, w9_form.w9_form_path, gen_liability_workers.liability_form_path, authorization_electronic_payments.payment_form_path from subcontractor_contact_form inner join subcontractor_agreement on subcontractor_agreement.contract_ID=subcontractor_contact_form.contract_ID inner join statement_of_work ON subcontractor_agreement.contract_ID=statement_of_work.contract_ID inner join w9_form ON subcontractor_agreement.contract_ID=w9_form.contract_ID inner join gen_liability_workers ON subcontractor_agreement.contract_ID=gen_liability_workers.contract_ID inner join authorization_electronic_payments on subcontractor_agreement.contract_ID=gen_liability_workers.contract_ID;';
-	con.query(selectQuery, function(err, rows) {
-	  if (!err) {
-		console.log('The solution is: ', rows);
-		res.render('Company', {
-			title: rows[0].name,
-			results: rows,
-			userlist: JSON.stringify(rows)
-        });
-	  }
-	  else {
-		res.render('error', {
-		  message: err.message,
-		  error: err
-		});
-		console.log('Error while performing Query.');
-		console.log(err);
-	  }
-	  
-	});
-});
-
-router.get('/FormPage', function(req, res) {
-	
-	//var collection = con.get('usercollection');
-	var selectQuery = 'SELECT * FROM employees';
-	con.query(selectQuery, function(err, rows) {
-	  if (!err) {
-		console.log('The solution is: ', rows);
-		res.render('Forms', {
-			title: rows[0].name,
-			results: rows,
-			userlist: JSON.stringify(rows)
-        });
-	  }
-	  else {
-		res.render('error', {
-		  message: err.message,
-		  error: err
-		});
-		console.log('Error while performing Query.');
-		console.log(err);
-	  }
-	  
-	});
-});
-
-router.get('/NewContract', function(req, res) {
-	
-	//var collection = con.get('usercollection');
-	var selectQuery = 'SELECT * FROM employees';
-	con.query(selectQuery, function(err, rows) {
-	  if (!err) {
-		console.log('The solution is: ', rows);
-		res.render('NewContract', {
-			title: rows[0].name,
-			results: rows,
-			userlist: JSON.stringify(rows)
-        });
-	  }
-	  else {
-		res.render('error', {
-		  message: err.message,
-		  error: err
-		});
-		console.log('Error while performing Query.');
-		console.log(err);
-	  }
-	  
-	});
-});
-
-//router.post('/upload', function(req, res) {
-//	console.dir(req.files);
-//});
 
 router.post('/upload', function(req, res) {
     var fstream;
