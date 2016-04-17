@@ -6,6 +6,8 @@ var busboy = require('connect-busboy');
 var encryptor = require('file-encryptor');
 var fs = require('fs');
 
+//app.set('prev', 'here');
+//console.log(app.get('prev'));
 console.log('Server started.');
 
 /* GET home page. */
