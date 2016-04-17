@@ -27,6 +27,7 @@ router.get('/index', function(req, res) {
 var mysql = require('mysql');
 
 var person = 'Zack';
+//var person = Sabrina;
 if (person === 'Zack') {
   var con = mysql.createConnection({
 	host     : 'localhost',
