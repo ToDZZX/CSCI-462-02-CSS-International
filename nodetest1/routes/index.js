@@ -299,7 +299,9 @@ router.post('/upload/:form', function(req, res) {
         file.pipe(fstream);
 		var key = 'EncryptSecretKey1423';
 		var input = path.resolve(__dirname+'/../private/tmp/' + filename);
-		var output = path.resolve(__dirname+'/../private' + locat + '/file.dat');// + filename);
+		var fileOutputName = '/file.dat';
+		var fileOutputPath = '/private' + locat + fileOutputName;
+		var output = path.resolve(__dirname+'/..' + fileOutputPath);// + filename);
 		var options = { algorithm : 'aes256' };
 		encryptor.encryptFile(input, output, key, options, function(err) {
 			//res.download(output);   

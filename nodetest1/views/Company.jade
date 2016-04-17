@@ -44,12 +44,13 @@ html
                 - var paymentPath = results[i].payment_form_path
                 - var datee = results[i].date
                 td 
-                  !{contrID}
+                  -if (typeof contrID !== 'undefined' && contrID)
+                    !{contrID}
+                  -else
+                    p Null
                 td
-                  !{contrName}
-                td
-                  -if (typeof scontaactPath !== 'undefined' && scontaactPath)
-                    a.button(href='public/forms/subcontractor-agreement.pdf', download='') Download
+                  -if (typeof contrName !== 'undefined' && contrName)
+                    !{contrName}
                   -else
                     p Null
                 td 
@@ -83,7 +84,10 @@ html
                   -else
                     p Null
                 td
-                  !{datee}
+                  -if (typeof datee !== 'undefined' && datee)
+                    !{datee}
+                  -else
+                    p Null
                 tr
               - }
         #norm
