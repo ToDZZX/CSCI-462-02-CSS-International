@@ -37,7 +37,7 @@ html
                 - var contrID = results[i].contract_ID;
                 - var contrName = results[i].contact_name
                 - var sagreePath = results[i].sagreement_form_path
-                - var scontaactPath = results[i].scontact_form_path
+                - var scontactPath = results[i].scontact_form_path
                 - var sowPath = results[i].sow_form_path
                 - var w9Path = results[i].w9_form_path
                 - var liabilityPath = results[i].liability_form_path
@@ -59,7 +59,7 @@ html
                   -else
                     p Null
                 td 
-                  -if (typeof scontaactPath !== 'undefined' && scontaactPath)
+                  -if (typeof scontactPath !== 'undefined' && scontactPath)
                     a.button(href='private/subcontractorContact/file.dat', download='') Download
                   -else
                     p Null

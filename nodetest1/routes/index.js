@@ -26,12 +26,24 @@ router.get('/index', function(req, res) {
 
 var mysql = require('mysql');
 
-var con = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'sys'
-});
+var person = 'Zack';
+//var person = Sabrina;
+if (person === 'Zack') {
+  var con = mysql.createConnection({
+	host     : 'localhost',
+	user     : 'root',
+	password : '',
+	database : 'sys'
+  });
+}
+else if (person === 'Sabrina') {
+  var con = mysql.createConnection({
+	host     : 'localhost',
+    user     : 'root',
+    password : '',
+    database : 'sys'
+  });
+}
 
 con.connect();
 
@@ -40,12 +52,12 @@ console.log('Connected to database [Customer-Facing].');
 router.get('/userlist', function(req, res) {
 	
 	//var collection = con.get('usercollection');
-	var selectQuery = 'SELECT * FROM employees';
+	var selectQuery = 'SELECT * FROM w9_form';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
 		//console.log('The solution is: ', rows);
 		res.render('userlist', {
-			title: rows[0].name,
+		//	title: rows[0].name,
 			results: rows,
 			userlist: JSON.stringify(rows)
         });
@@ -64,7 +76,7 @@ router.get('/userlist', function(req, res) {
 
 router.get('/FormPage', function(req, res) {
 	//var collection = con.get('usercollection');
-	var selectQuery = 'SELECT * FROM employees';
+	var selectQuery = 'SELECT * FROM w9_form';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
 		//console.log('The solution is: ', rows);
@@ -88,7 +100,7 @@ router.get('/FormPage', function(req, res) {
 
 router.get('/SubcontractorAgreement', function(req, res) {	
 	//var collection = con.get('usercollection');
-	var selectQuery = 'SELECT * FROM employees';
+	var selectQuery = 'SELECT * FROM w9_form';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
 		//console.log('The solution is: ', rows);
@@ -113,7 +125,7 @@ router.get('/SubcontractorAgreement', function(req, res) {
 router.get('/SubcontractorContact', function(req, res) {
 	
 	//var collection = con.get('usercollection');
-	var selectQuery = 'SELECT * FROM employees';
+	var selectQuery = 'SELECT * FROM w9_form';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
 		//console.log('The solution is: ', rows);
@@ -138,7 +150,7 @@ router.get('/SubcontractorContact', function(req, res) {
 router.get('/StatementOfWork', function(req, res) {
 	
 	//var collection = con.get('usercollection');
-	var selectQuery = 'SELECT * FROM employees';
+	var selectQuery = 'SELECT * FROM w9_form';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
 		//console.log('The solution is: ', rows);
@@ -163,7 +175,7 @@ router.get('/StatementOfWork', function(req, res) {
 router.get('/W9', function(req, res) {
 	
 	//var collection = con.get('usercollection');
-	var selectQuery = 'SELECT * FROM employees';
+	var selectQuery = 'SELECT * FROM w9_form';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
 		//console.log('The solution is: ', rows);
@@ -188,7 +200,7 @@ router.get('/W9', function(req, res) {
 router.get('/GeneralLiability', function(req, res) {
 	
 	//var collection = con.get('usercollection');
-	var selectQuery = 'SELECT * FROM employees';
+	var selectQuery = 'SELECT * FROM w9_form';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
 		//console.log('The solution is: ', rows);
@@ -213,7 +225,7 @@ router.get('/GeneralLiability', function(req, res) {
 router.get('/PaymentAuthorization', function(req, res) {
 	
 	//var collection = con.get('usercollection');
-	var selectQuery = 'SELECT * FROM employees';
+	var selectQuery = 'SELECT * FROM w9_form';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
 		//console.log('The solution is: ', rows);
@@ -238,7 +250,7 @@ router.get('/PaymentAuthorization', function(req, res) {
 router.get('/ExpensePolicy', function(req, res) {
 	
 	//var collection = con.get('usercollection');
-	var selectQuery = 'SELECT * FROM employees';
+	var selectQuery = 'SELECT * FROM w9_form';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
 		//console.log('The solution is: ', rows);
