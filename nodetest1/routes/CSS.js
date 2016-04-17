@@ -5,6 +5,7 @@ var path = require('path');
 var busboy = require('connect-busboy');
 var encryptor = require('file-encryptor');
 var fs = require('fs');
+var crypto = require('crypto');
 
 var crypto = require('crypto');
 
@@ -21,22 +22,9 @@ router.get('/', function(req, res, next) {
 
 var mysql = require('mysql');
 
-/*var con = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'sys'
-}); */
-  var con = mysql.createConnection({
-	host     : 'localhost',
-    user     : 'root',
-    password : 'ThisIs4Class',
-    database : 'contractor_info'
-  });
-
 var person = 'Zack';
 //var person = Sabrina;
-/*if (person === 'Zack') {
+if (person === 'Zack') {
   var con = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
@@ -48,11 +36,10 @@ else if (person === 'Sabrina') {
   var con = mysql.createConnection({
 	host     : 'localhost',
     user     : 'root',
-    password : '',
-    database : 'sys'
+    password : 'ThisIs4Class',
+    database : 'contractor_info'
   });
 }
-*/
 
 con.connect();
 
@@ -127,31 +114,45 @@ router.get('/createContract', function(req, res) {
 	
 	console.log('inside of new contract');
 	con.query(insertquery1, function(err, rows) { //subcontractor agreement
-	console.log('Inserting  into the contract_ID field of subcontractform');
+		console.log('Inserting ' + newID + ' into the contract_ID field of subcontractor_agreement table');
+		console.log('Inserting ' + new1 + ' into the form_instance_ID field of subcontract_agreement table');
 	});
 	
 	con.query(insertquery2, function(err, rows) { //subcontractor contact info
-		console.log('Inserting  into the contract_ID field of subcontract contact');
+		console.log('Inserting ' + newID + ' into the contract_ID field of subcontractor_contact_form table');
+		console.log('Inserting ' + new2 + ' into the form_instance_ID field of subcontractor_contact_form table');
+
 	});
 	
 	
 	con.query(insertquery3, function(err, rows) { //SOW
-		console.log('Inserting  into the contract_ID field of sow');
+		console.log('Inserting ' + newID + ' into the contract_ID field of statement_of_work table');
+		console.log('Inserting ' + new2 + ' into the form_instance_ID field of statement_of_work table');
+
 	});
 	
 	
 	con.query(insertquery4, function(err, rows) { //w9
-		console.log('Inserting  into the contract_ID field of w9'); 
+
+		console.log('Inserting ' + newID + ' into the contract_ID field of w9_form table');
+		console.log('Inserting ' + new2 + ' into the form_instance_ID field of w9_form table');		
+
 	});
 	
 	
 	con.query(insertquery5, function(err, rows) { //gen reliability
-		console.log('Inserting  into the contract_ID field of general reliability'); 
+
+		console.log('Inserting ' + newID + ' into the contract_ID field of gen_liability_workers table');
+		console.log('Inserting ' + new2 + ' into the form_instance_ID field of gen_liability_workers table');	 
+
 	});
 	
 	
 	con.query(insertquery6, function(err, rows) { //electronic payment authorization 
-		console.log('Inserting  into the contract_ID field of payment authorization');
+
+		console.log('Inserting ' + newID + ' into the contract_ID field of authorization_electronic_payments table');
+		console.log('Inserting ' + new2 + ' into the form_instance_ID field of authorization_electronic_payments table');
+
 		res.redirect('back');    
 	}); 
 });
