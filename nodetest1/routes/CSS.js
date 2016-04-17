@@ -17,12 +17,18 @@ router.get('/', function(req, res, next) {
 
 var mysql = require('mysql');
 
-var con = mysql.createConnection({
+/*var con = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : '',
   database : 'sys'
-});
+}); */
+  var con = mysql.createConnection({
+	host     : 'localhost',
+    user     : 'root',
+    password : 'ThisIs4Class',
+    database : 'contractor_info'
+  });
 
 con.connect();
 

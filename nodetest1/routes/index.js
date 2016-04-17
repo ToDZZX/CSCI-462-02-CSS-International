@@ -26,24 +26,24 @@ router.get('/index', function(req, res) {
 
 var mysql = require('mysql');
 
-var person = 'Zack';
-//var person = Sabrina;
-if (person === 'Zack') {
-  var con = mysql.createConnection({
-	host     : 'localhost',
-	user     : 'root',
-	password : '',
-	database : 'sys'
-  });
-}
-else if (person === 'Sabrina') {
+//var person = 'Zack';
+var person = 'Sabrina';
+//if (person === 'Zack') {
+//  var con = mysql.createConnection({
+//	host     : 'localhost',
+//	user     : 'root',
+//	password : '',
+//	database : 'sys'
+//  });
+//}
+//else if (person === 'Sabrina') {
   var con = mysql.createConnection({
 	host     : 'localhost',
     user     : 'root',
-    password : '',
-    database : 'sys'
+    password : 'ThisIs4Class',
+    database : 'contractor_info'
   });
-}
+//}
 
 con.connect();
 
