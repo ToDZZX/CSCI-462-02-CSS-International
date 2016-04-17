@@ -12,10 +12,15 @@ html
       .main
         h2 Create A New Contract
         form#newContract
-          | Contract ID:
-          form(action='/CSS/createContract', enctype='multipart/form-data', method='post')
+         #column1
           span(style='float: left') Create new contract:
           br
-          input.button(type='submit', style='top: 5px; float: left', value='Create')
+          form(action='/CSS/createContract', enctype='multipart/form-data', method='post')
+          input#file.inputfile(type='file', name='datafile', size='40')
+          br
+          a.button-bar.button2(href='/CSS/createContract') Create
+         #column2
+          span(style='float: right') Contract ID:
+          
 
 

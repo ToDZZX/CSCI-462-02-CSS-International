@@ -6,6 +6,10 @@ var busboy = require('connect-busboy');
 var encryptor = require('file-encryptor');
 var fs = require('fs');
 
+var crypto = require('crypto');
+
+var uuid = require('node-uuid'); //for generating number
+
 /* GET home page. */
 router.get('/companyIndex', function(req, res, next) {
   res.render('companyIndex', { title: 'Express' });
@@ -121,33 +125,33 @@ router.get('/createContract', function(req, res) {
 	var insertquery5 = "INSERT INTO gen_liability_workers (`contract_ID`, `form_instance_ID`) VALUES ('" + newID + "','" + new5 +  "')"; //create query string to input
 	var insertquery6 = "INSERT INTO authorization_electronic_payments (`contract_ID`, `form_instance_ID`) VALUES ('" + newID + "','" + new6 +  "')"; //create query string to input
 	
-	
+	console.log('inside of new contract');
 	con.query(insertquery1, function(err, rows) { //subcontractor agreement
-	console.log('Inserting ' + contract_ID + ' into the contract_ID field of subcontractform');
+	console.log('Inserting  into the contract_ID field of subcontractform');
 	});
 	
 	con.query(insertquery2, function(err, rows) { //subcontractor contact info
-		console.log('Inserting ' + contract_ID + ' into the contract_ID field of subcontract contact');
+		console.log('Inserting  into the contract_ID field of subcontract contact');
 	});
 	
 	
 	con.query(insertquery3, function(err, rows) { //SOW
-		console.log('Inserting ' + contract_ID + ' into the contract_ID field of sow');
+		console.log('Inserting  into the contract_ID field of sow');
 	});
 	
 	
 	con.query(insertquery4, function(err, rows) { //w9
-		console.log('Inserting ' + contract_ID + ' into the contract_ID field of w9'); 
+		console.log('Inserting  into the contract_ID field of w9'); 
 	});
 	
 	
 	con.query(insertquery5, function(err, rows) { //gen reliability
-		console.log('Inserting ' + contract_ID + ' into the contract_ID field of general reliability'); 
+		console.log('Inserting  into the contract_ID field of general reliability'); 
 	});
 	
 	
 	con.query(insertquery6, function(err, rows) { //electronic payment authorization 
-		console.log('Inserting ' + contract_ID + ' into the contract_ID field of payment authorization');
+		console.log('Inserting  into the contract_ID field of payment authorization');
 		res.redirect('back');    
 	}); 
 });
