@@ -1,0 +1,1 @@
+SELECT * FROM contractor_info.forms;
