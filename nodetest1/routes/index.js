@@ -19,11 +19,6 @@ router.get('/helloworld', function(req, res) {
     res.render('helloworld', { title: 'Hello, World!' });
 });
 
-/* GET Hello World page. */
-router.get('/index', function(req, res) {
-    res.render('index', { title: 'Hello, World!' });
-});
-
 var mysql = require('mysql');
 
 //var person = 'Zack';
@@ -74,7 +69,7 @@ router.get('/userlist', function(req, res) {
 	});
 });
 
-router.get('/jobs', function(req, res) {
+router.get('/Jobs', function(req, res) {
 	var selectQuery = 'SELECT * FROM w9_form';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
@@ -97,7 +92,7 @@ router.get('/jobs', function(req, res) {
 	});
 });
 
-router.get('/FormPage', function(req, res) {
+router.get('/FormHome', function(req, res) {
 	//var collection = con.get('usercollection');
 	var selectQuery = 'SELECT * FROM w9_form';
 	con.query(selectQuery, function(err, rows) {
