@@ -17,6 +17,7 @@ router.get('/', function(req, res, next) {
 
 var mysql = require('mysql');
 
+<<<<<<< HEAD
 /*var con = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -29,6 +30,26 @@ var mysql = require('mysql');
     password : 'ThisIs4Class',
     database : 'contractor_info'
   });
+=======
+var person = 'Zack';
+//var person = Sabrina;
+if (person === 'Zack') {
+  var con = mysql.createConnection({
+	host     : 'localhost',
+	user     : 'root',
+	password : '',
+	database : 'sys'
+  });
+}
+else if (person === 'Sabrina') {
+  var con = mysql.createConnection({
+	host     : 'localhost',
+    user     : 'root',
+    password : '',
+    database : 'sys'
+  });
+}
+>>>>>>> origin/master
 
 con.connect();
 

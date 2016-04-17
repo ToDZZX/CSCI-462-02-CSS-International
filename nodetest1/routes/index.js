@@ -74,6 +74,29 @@ router.get('/userlist', function(req, res) {
 	});
 });
 
+router.get('/jobs', function(req, res) {
+	var selectQuery = 'SELECT * FROM w9_form';
+	con.query(selectQuery, function(err, rows) {
+	  if (!err) {
+		//console.log('The solution is: ', rows);
+		res.render('Jobs', {
+		//	title: rows[0].name,
+			results: rows,
+			userlist: JSON.stringify(rows)
+        });
+	  }
+	  else {
+		res.render('error', {
+		  message: err.message,
+		  error: err
+		});
+		console.log('Error while performing Query.');
+		console.log(err);
+	  }
+	  
+	});
+});
+
 router.get('/FormPage', function(req, res) {
 	//var collection = con.get('usercollection');
 	var selectQuery = 'SELECT * FROM w9_form';
