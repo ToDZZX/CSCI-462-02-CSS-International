@@ -17,7 +17,6 @@ router.get('/', function(req, res, next) {
 
 var mysql = require('mysql');
 
-<<<<<<< HEAD
 /*var con = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -30,10 +29,10 @@ var mysql = require('mysql');
     password : 'ThisIs4Class',
     database : 'contractor_info'
   });
-=======
+
 var person = 'Zack';
 //var person = Sabrina;
-if (person === 'Zack') {
+/*if (person === 'Zack') {
   var con = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
@@ -49,7 +48,7 @@ else if (person === 'Sabrina') {
     database : 'sys'
   });
 }
->>>>>>> origin/master
+*/
 
 con.connect();
 
@@ -63,7 +62,7 @@ router.get('/Company', function(req, res) {
 	  if (!err) {
 		//console.log('The solution is: ', rows);
 		res.render('Company', {
-			title: rows[0].name,
+			//title: rows[0].name,
 			results: rows,
 			userlist: JSON.stringify(rows)
         });
@@ -83,12 +82,12 @@ router.get('/Company', function(req, res) {
 router.get('/NewContract', function(req, res) {
 	
 	//var collection = con.get('usercollection');
-	var selectQuery = 'SELECT * FROM employees';
+	var selectQuery = 'SELECT * FROM w9_form';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
 		//console.log('The solution is: ', rows);
 		res.render('NewContract', {
-			title: rows[0].name,
+			//title: rows[0].name,
 			results: rows,
 			userlist: JSON.stringify(rows)
         });
