@@ -184,6 +184,10 @@ float:right;
 float:left;
 }
 
+.begin{
+float:left;
+}
+
 .button2::after {
   content: '';
   position: absolute;
@@ -197,7 +201,8 @@ float:left;
 /* Arrow Buttons */
 /* ------------- */
 .next::after,
-.prev::after {
+.prev::after,
+.begin::after {
   border-style: solid;
 }
 /* Next Button */
@@ -219,4 +224,12 @@ float:left;
 }
 .prev:hover::after {
   border-right-color: #808080;
+}
+
+/* Begin Button */
+/* ----------- */
+.begin::after {
+  right: -22px;
+  border-width: 11px;
+  border-color: transparent transparent transparent transparent;
 }

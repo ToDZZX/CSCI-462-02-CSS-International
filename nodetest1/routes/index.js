@@ -19,11 +19,6 @@ router.get('/helloworld', function(req, res) {
     res.render('helloworld', { title: 'Hello, World!' });
 });
 
-/* GET Hello World page. */
-router.get('/index', function(req, res) {
-    res.render('index', { title: 'Hello, World!' });
-});
-
 var mysql = require('mysql');
 
 var person = 'Zack';
