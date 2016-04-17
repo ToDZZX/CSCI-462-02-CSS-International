@@ -35,7 +35,7 @@ var con = mysql.createConnection({
 
 con.connect();
 
-console.log('Connected to database.');
+console.log('Connected to database [Customer-Facing].');
 
 router.get('/userlist', function(req, res) {
 	
@@ -43,7 +43,7 @@ router.get('/userlist', function(req, res) {
 	var selectQuery = 'SELECT * FROM employees';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
-		console.log('The solution is: ', rows);
+		//console.log('The solution is: ', rows);
 		res.render('userlist', {
 			title: rows[0].name,
 			results: rows,
@@ -62,15 +62,38 @@ router.get('/userlist', function(req, res) {
 	});
 });
 
-router.get('/SubcontractorAgreement', function(req, res) {
-	
+router.get('/FormPage', function(req, res) {
 	//var collection = con.get('usercollection');
 	var selectQuery = 'SELECT * FROM employees';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
-		console.log('The solution is: ', rows);
+		//console.log('The solution is: ', rows);
+		res.render('Forms', {
+		//	title: rows[0].name,
+			results: rows,
+			userlist: JSON.stringify(rows)
+        });
+	  }
+	  else {
+		res.render('error', {
+		  message: err.message,
+		  error: err
+		});
+		console.log('Error while performing Query.');
+		console.log(err);
+	  }
+	  
+	});
+});
+
+router.get('/SubcontractorAgreement', function(req, res) {	
+	//var collection = con.get('usercollection');
+	var selectQuery = 'SELECT * FROM employees';
+	con.query(selectQuery, function(err, rows) {
+	  if (!err) {
+		//console.log('The solution is: ', rows);
 		res.render('SubcontractorAgreement', {
-			title: rows[0].name,
+		//	title: rows[0].name,
 			results: rows,
 			userlist: JSON.stringify(rows)
         });
@@ -93,9 +116,9 @@ router.get('/SubcontractorContact', function(req, res) {
 	var selectQuery = 'SELECT * FROM employees';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
-		console.log('The solution is: ', rows);
+		//console.log('The solution is: ', rows);
 		res.render('SubcontractorContact', {
-			title: rows[0].name,
+		//	title: rows[0].name,
 			results: rows,
 			userlist: JSON.stringify(rows)
         });
@@ -118,9 +141,9 @@ router.get('/StatementOfWork', function(req, res) {
 	var selectQuery = 'SELECT * FROM employees';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
-		console.log('The solution is: ', rows);
+		//console.log('The solution is: ', rows);
 		res.render('StatementOfWork', {
-			title: rows[0].name,
+		//	title: rows[0].name,
 			results: rows,
 			userlist: JSON.stringify(rows)
         });
@@ -143,9 +166,9 @@ router.get('/W9', function(req, res) {
 	var selectQuery = 'SELECT * FROM employees';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
-		console.log('The solution is: ', rows);
+		//console.log('The solution is: ', rows);
 		res.render('W9', {
-			title: rows[0].name,
+		//	title: rows[0].name,
 			results: rows,
 			userlist: JSON.stringify(rows)
         });
@@ -168,9 +191,9 @@ router.get('/GeneralLiability', function(req, res) {
 	var selectQuery = 'SELECT * FROM employees';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
-		console.log('The solution is: ', rows);
+		//console.log('The solution is: ', rows);
 		res.render('GeneralLiability', {
-			title: rows[0].name,
+		//	title: rows[0].name,
 			results: rows,
 			userlist: JSON.stringify(rows)
         });
@@ -193,9 +216,9 @@ router.get('/PaymentAuthorization', function(req, res) {
 	var selectQuery = 'SELECT * FROM employees';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
-		console.log('The solution is: ', rows);
+		//console.log('The solution is: ', rows);
 		res.render('PaymentAuthorization', {
-			title: rows[0].name,
+		//	title: rows[0].name,
 			results: rows,
 			userlist: JSON.stringify(rows)
         });
@@ -218,9 +241,9 @@ router.get('/ExpensePolicy', function(req, res) {
 	var selectQuery = 'SELECT * FROM employees';
 	con.query(selectQuery, function(err, rows) {
 	  if (!err) {
-		console.log('The solution is: ', rows);
+		//console.log('The solution is: ', rows);
 		res.render('ExpensePolicy', {
-			title: rows[0].name,
+		//	title: rows[0].name,
 			results: rows,
 			userlist: JSON.stringify(rows)
         });
@@ -237,23 +260,51 @@ router.get('/ExpensePolicy', function(req, res) {
 	});
 });
 
-router.post('/upload', function(req, res) {
+router.post('/upload/:form', function(req, res) {
+	//console.log('upload test ' + req.params.form);
+	var locat;
+	switch (req.params.form) {
+		case 'SubcontractorAgreement':
+			locat = '/subcontractorAgreement';
+			break;
+		case 'GeneralLiability':
+			locat = '/generalLiability';
+			break;
+		case 'ExpensePolicy':
+			locat = '/expensePolicy';
+			break;
+		case 'W9':
+			locat = '/w9';
+			break;
+		case 'PaymentAuthorization':
+			locat = '/paymentAuthorization';
+			break;
+		case 'StatementOfWork':
+			locat = '/statementOfWork';
+			break;
+		default:
+			locat = '/tmp';
+	}
+	/*if (req.url === '/SubcontractorAgreement') {
+		console.log('upload here: ');
+	}
+	if (req.url === '/SubcontractorContact') {
+		console.log('upload here: ' + req.url);
+	}*/
     var fstream;
     req.pipe(req.busboy);
     req.busboy.on('file', function (fieldname, file, filename) {
-        console.log("Uploading: " + filename);
+        console.log("Uploading: " + filename + ' to: ' + locat);
         fstream = fs.createWriteStream((__dirname.split("\\routes"))[0] + '/private/tmp/' + filename);
         file.pipe(fstream);
 		var key = 'EncryptSecretKey1423';
 		var input = path.resolve(__dirname+'/../private/tmp/' + filename);
-		var output = path.resolve(__dirname+'/../private/tmp/file.dat');// + filename);
+		var output = path.resolve(__dirname+'/../private' + locat + '/file.dat');// + filename);
 		var options = { algorithm : 'aes256' };
 		encryptor.encryptFile(input, output, key, options, function(err) {
 			//res.download(output);   
 		});
 		/* Delete file off of server */
-		//var filePath = __dirname+'/../tmp/private/' + filename; 
-		//fs.unlinkSync(filePath);
 		var filePath = __dirname+'/../private/tmp/' + filename; 
         fstream.on('close', function () {
 			fs.unlinkSync(filePath);
