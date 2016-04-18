@@ -112,7 +112,7 @@ router.get('/createContract', function(req, res) {
 	var insertquery5 = "INSERT INTO gen_liability_workers (`contract_ID`, `form_instance_ID`) VALUES ('" + newID + "','" + new5 +  "')"; //create query string to input
 	var insertquery6 = "INSERT INTO authorization_electronic_payments (`contract_ID`, `form_instance_ID`) VALUES ('" + newID + "','" + new6 +  "')"; //create query string to input
 	
-	console.log('inside of new contract');
+	//console.log('inside of new contract');
 	con.query(insertquery1, function(err, rows) { //subcontractor agreement
 		console.log('Inserting ' + newID + ' into the contract_ID field of subcontractor_agreement table');
 		console.log('Inserting ' + new1 + ' into the form_instance_ID field of subcontract_agreement table');
@@ -121,38 +121,26 @@ router.get('/createContract', function(req, res) {
 	con.query(insertquery2, function(err, rows) { //subcontractor contact info
 		console.log('Inserting ' + newID + ' into the contract_ID field of subcontractor_contact_form table');
 		console.log('Inserting ' + new2 + ' into the form_instance_ID field of subcontractor_contact_form table');
-
 	});
-	
 	
 	con.query(insertquery3, function(err, rows) { //SOW
 		console.log('Inserting ' + newID + ' into the contract_ID field of statement_of_work table');
 		console.log('Inserting ' + new2 + ' into the form_instance_ID field of statement_of_work table');
-
 	});
-	
 	
 	con.query(insertquery4, function(err, rows) { //w9
-
 		console.log('Inserting ' + newID + ' into the contract_ID field of w9_form table');
 		console.log('Inserting ' + new2 + ' into the form_instance_ID field of w9_form table');		
-
 	});
-	
 	
 	con.query(insertquery5, function(err, rows) { //gen reliability
-
 		console.log('Inserting ' + newID + ' into the contract_ID field of gen_liability_workers table');
 		console.log('Inserting ' + new2 + ' into the form_instance_ID field of gen_liability_workers table');	 
-
 	});
 	
-	
 	con.query(insertquery6, function(err, rows) { //electronic payment authorization 
-
 		console.log('Inserting ' + newID + ' into the contract_ID field of authorization_electronic_payments table');
 		console.log('Inserting ' + new2 + ' into the form_instance_ID field of authorization_electronic_payments table');
-
 		res.redirect('back');    
 	}); 
 });
