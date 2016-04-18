@@ -140,7 +140,7 @@ router.get('/SubcontractorAgreement', function(req, res) {
 	});
 });
 
-router.get('/S[ubcontractorContact', function(req, res) {
+router.get('/SubcontractorContact', function(req, res) {
 	
 	//var collection = con.get('usercollection');
 	var selectQuery = 'SELECT * FROM w9_form';
