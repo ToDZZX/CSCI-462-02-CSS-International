@@ -134,6 +134,30 @@ li a:hover, .dropdown:hover .dropbtn {
     display: block;
 }
 
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+    width:50px;
+  background-color: #BDBDBD;
+  text-align: center;
+}
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  height: 100%;
+  text-align: center;
+}
+
+#uploadFile{border: none;margin-left: 10px; width: 200px;}
+
 .button {
 	position: relative;
 	top: 10px;
