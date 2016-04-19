@@ -6,7 +6,7 @@ html
     script(src='//code.jquery.com/jquery.min.js')
     script(type='text/javascript').
       function myf (val) {
-      document.getElementById("uploadFile").value = val;
+        document.getElementById("uploadFile").value = val;
       }
     include Navigation.jade
   #nav
@@ -28,7 +28,7 @@ html
           br
         #column2
           form(action='/upload/GeneralLiability', enctype='multipart/form-data', method='post')
-		      span(style='float: right') Upload Form:
+              span(style='float: right') Upload Form:
               br
               span.fileUpload.button(style='float:right; margin:0px')
                 | Choose File
