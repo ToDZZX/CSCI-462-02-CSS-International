@@ -25,9 +25,16 @@ html
           form(action='/upload/SubcontractorAgreement', enctype='multipart/form-data', method='post')
             span(style='float: right') Upload Form:
             br
-            input.button(type='submit', style='top: 5px; float: right', value='Send')
-            input#file.inputfile(type='file', name='datafile', size='40')
-            label.button(for='file', style='top: 7px; float: right') Choose file
+            span.fileUpload.button(style='float:right; margin:0px')
+              | Choose File
+              input#file.upload(type='file', name='datafile', size='40000', onchange='myf(this.files[0].name)')
+              br
+              br
+              br
+              input#uploadFile(style='float:right; background-color: #f8f8ff; text-align:right', placeholder='0 files selected', disabled='disabled')
+              br
+              br
+              input.button(type='submit', style='float: right', value='Send')
         #norm
           br
           br
