@@ -40,7 +40,6 @@ html
             span.fileUpload.button(style='float:right; margin:0px')
               | Choose File
               input#file.upload(type='file', name='datafile', size='40000', onchange='myf(this.files[0].name)')
-             br
             br
             br
             input#uploadFile(style='float:right; background-color: #f8f8ff; text-align:right', placeholder='0 files selected', disabled='disabled')
@@ -48,6 +47,12 @@ html
             br
             input.button(type='submit', style='float: right', value='Send')
         #norm
+          br
+          br
+          div(style='text-align:center')
+            | Subcontractor Agreement >> Subcontract Contact >> CSS Statement of Work >> W-9 >> General Liability >>
+            b Payment Authorization
+            | >> Time and Expense Entry
           a.button-bar.button2.prev(href='GeneralLiability') Previous
           a.button-bar.button2.next(href='ExpensePolicy') Next
 

@@ -25,12 +25,12 @@ html
         br
         #column1
         #column2
-          span(style='float: right') Upload Form:
+          form(action='/upload/StatementOfWork', enctype='multipart/form-data', method='post')
+            span(style='float: right') Upload Form:
             br
             span.fileUpload.button(style='float:right; margin:0px')
               | Choose File
               input#file.upload(type='file', name='datafile', size='40000', onchange='myf(this.files[0].name)')
-             br
             br
             br
             input#uploadFile(style='float:right; background-color: #f8f8ff; text-align:right', placeholder='0 files selected', disabled='disabled')
@@ -38,6 +38,12 @@ html
             br
             input.button(type='submit', style='float: right', value='Send')
         #norm
+          br
+          br
+          div(style='text-align:center')
+            | Subcontractor Agreement >> Subcontract Contact >>
+            b CSS Statement of Work
+            | >> W-9 >> General Liability >> Payment Authorization >> Time and Expense Entry
           a.button-bar.button2.prev(href='SubcontractorContact') Previous
           a.button-bar.button2.next(href='W9') Next
 
