@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 var mysql = require('mysql');
 
 var person = 'Zack';
-//var person = Sabrina;
+//var person = 'Sabrina';
 if (person === 'Zack') {
   var con = mysql.createConnection({
 	host     : 'localhost',
@@ -125,24 +125,53 @@ router.get('/createContract', function(req, res) {
 	
 	con.query(insertquery3, function(err, rows) { //SOW
 		console.log('Inserting ' + newID + ' into the contract_ID field of statement_of_work table');
-		console.log('Inserting ' + new2 + ' into the form_instance_ID field of statement_of_work table');
+
+		console.log('Inserting ' + new3 + ' into the form_instance_ID field of statement_of_work table');
 	});
 	
 	con.query(insertquery4, function(err, rows) { //w9
 		console.log('Inserting ' + newID + ' into the contract_ID field of w9_form table');
-		console.log('Inserting ' + new2 + ' into the form_instance_ID field of w9_form table');		
+		console.log('Inserting ' + new4 + ' into the form_instance_ID field of w9_form table');		
+
+
 	});
 	
 	con.query(insertquery5, function(err, rows) { //gen reliability
-		console.log('Inserting ' + newID + ' into the contract_ID field of gen_liability_workers table');
-		console.log('Inserting ' + new2 + ' into the form_instance_ID field of gen_liability_workers table');	 
+	
+		console.log('Inserting ' + newID + ' into the contract_ID field of field of gen_liability_workers table');
+		console.log('Inserting ' + new5 + ' into the form_instance_ID field of gen_liability_workers table');	 
+		
 	});
 	
 	con.query(insertquery6, function(err, rows) { //electronic payment authorization 
 		console.log('Inserting ' + newID + ' into the contract_ID field of authorization_electronic_payments table');
-		console.log('Inserting ' + new2 + ' into the form_instance_ID field of authorization_electronic_payments table');
-		res.redirect('back');    
+
+		console.log('Inserting ' + new6 + ' into the form_instance_ID field of authorization_electronic_payments table');
+
+		//res.redirect('back');    
 	}); 
+	
+	//var displayQuery = "SELECT contract_ID FROM subcontractor_contact_form WHERE form_instance_ID = '" + new1 +"'"; 
+	var displayQuery = "SELECT contract_ID FROM subcontractor_agreement WHERE form_instance_ID = '" + new1 +"'"; 
+	con.query(displayQuery, function(err, rows) {
+	  if (!err) {
+		//console.log('The solution is: ', rows);
+		res.render('CreatedContract', {
+			//title: rows[0].name,
+			results: rows,
+			userlist: JSON.stringify(rows)
+        });
+	  }
+	  else {
+		res.render('error', {
+		  message: err.message,
+		  error: err
+		});
+		console.log('Error while performing Query.');
+		console.log(err);
+	  }
+  });
+
 });
 
 router.post('/download', function(req, res) {

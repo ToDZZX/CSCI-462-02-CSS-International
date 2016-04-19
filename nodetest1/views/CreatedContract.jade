@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    style
+      include CSSInternational.css
+    link(rel='stylesheet', type='text/css', href='CSSInternational.css')
+    script(src='//code.jquery.com/jquery.min.js')
+    include CompanyNavigation.jade
+  #nav
+  body
+    .page
+      .main
+        h2 Create A New Contract
+        form#newContract
+         #column1
+          span(style='float: left') Create new contract:
+          br
+          form(action='/CSS/createContract', enctype='multipart/form-data', method='post')
+          input#file.inputfile(type='file', name='datafile', size='40')
+          br
+          a.button-bar.button2(href='/CSS/createContract') Create
+         #column2
+          span(style='float: right') Contract ID:
+          br
+          - for( var i = 0; i < results.length; i++ ) {
+          - var contrID = results[i].contract_ID;
+            -if (typeof contrID !== 'undefined' && contrID)
+              span(style='float: right')  !{contrID}
+            -else
+              p Null
+        - }
+        
