@@ -4,7 +4,7 @@ html
     style
       include CSSInternational.css
     script(src='//code.jquery.com/jquery.min.js')
-    script(type='text/javascript')
+    script(type='text/javascript').
       function changetext (val) {
       val = val.replace(/^.*\\\/, "");
       document.getElementById("uploadFile").value = val;
@@ -29,14 +29,18 @@ html
           br
         #column2
           form(action='/upload/GeneralLiability', enctype='multipart/form-data', method='post')
-            span(style='float: right') Upload Form:
-            br
-            input.button(type='submit', style='top: 5px; float: right', value='Send')
-            span.fileUpload.button
-              Choose File
-              input#file.upload(type='file', name='datafile', size='40000' onchange='changetext(this.value)')
-            br
-            input#uploadFile(placeholder='0 files selected', disabled='disabled')
+      span(style='float: right') Upload Form:
+      br
+      span.fileUpload.button(style='float:right; margin:0px')
+        | Choose File
+        input#file.upload(type='file', name='datafile', size='40000', onchange='changetext(this.value)')
+      br
+      br
+      br
+      input#uploadFile(style='float:right; background-color: #f8f8ff; text-align:right', placeholder='0 files selected', disabled='disabled')
+      br
+      br
+      input.button(type='submit', style='float: right', value='Send')
         #norm
           a.button-bar.button2.prev(href='W9') Previous
           a.button-bar.button2.next(href='PaymentAuthorization') Next

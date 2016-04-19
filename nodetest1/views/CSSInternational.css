@@ -138,7 +138,7 @@ li a:hover, .dropdown:hover .dropbtn {
   position: relative;
   overflow: hidden;
   margin: 10px;
-    width:50px;
+    width:100px;
   background-color: #BDBDBD;
   text-align: center;
 }

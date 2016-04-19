@@ -6,89 +6,121 @@ html
     link(rel='stylesheet', type='text/css', href='CSSInternational.css')
     script(src='//code.jquery.com/jquery.min.js')
     include CompanyNavigation.jade
+    script(type='text/javascript').
+      jQuery(document).ready(function($){
+      $('.live-search-box').on('keydown', function (e) {
+      if (e.which == 13) {
+      $(".live-search-list input[type=checkbox]:visible").each(function(){
+      $(this).prop('checked', true); //change second part to !$(this).is(':checked') to toggle
+      });
+      $('.live-search-box').val("");
+      return false;
+      }
+      });
+      $('.live-search-list tbody tr').each(function(){
+      $(this).attr('data-search-term', $(this).text().toLowerCase());
+      });
+      $('.live-search-box').on('keyup', function(){
+      var searchTerm = $(this).val().toLowerCase();
+      $('.live-search-list tbody tr').each(function(){
+      if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 0 || $(this).find(".cb").is(':checked')) { //change 0 to 1 if you want to have them all show
+      $(this).show();
+      } else {
+      $(this).hide();
+      }
+      });
+      if(e.which ==13){
+      return false;
+      }
+      });
+      });
   #nav
   body
     .page
       .main
-        table#keywords(cellspacing='10', cellpadding='0')
-          thead
-            tr
-              th
-                span Contract ID
-              th
-                span Contractor Name
-              th
-                span Subcontractor Agreement
-              th
-                span Subcontractor Contact
-              th
-                span Statement of Work
-              th
-                span W-9
-              th
-                span General Liability
-              th
-                span Payment Authorization
-              th
-                span Date
-          tbody
-            tr
-              - for( var i = 0; i < results.length; i++ ) {
-                - var contrID = results[i].contract_ID;
-                - var contrName = results[i].contact_name
-                - var sagreePath = results[i].sagreement_form_path
-                - var scontactPath = results[i].scontact_form_path
-                - var sowPath = results[i].sow_form_path
-                - var w9Path = results[i].w9_form_path
-                - var liabilityPath = results[i].liability_form_path
-                - var paymentPath = results[i].payment_form_path
-                - var datee = results[i].date
-                td 
-                  -if (typeof contrID !== 'undefined' && contrID)
-                    !{contrID}
-                  -else
-                    p Null
-                td
-                  -if (typeof contrName !== 'undefined' && contrName)
-                    !{contrName}
-                  -else
-                    p Null
-                td 
-                  -if (typeof sagreePath !== 'undefined' && sagreePath)
-                    a.button(href='private/subcontractorAgreement/file.dat', download='') Download
-                  -else
-                    p Null
-                td 
-                  -if (typeof scontactPath !== 'undefined' && scontactPath)
-                    a.button(href='private/subcontractorContact/file.dat', download='') Download
-                  -else
-                    p Null
-                td
-                  -if (typeof sowPath !== 'undefined' && sowPath)
-                    a.button(href='private/statementOfWork/file.dat', download='') Download
-                  -else
-                    p Null
-                td
-                  -if (typeof w9Path !== 'undefined' && w9Path)
-                    a.button(href='private/w9/file.dat', download='') Download
-                  -else
-                    p Null
-                td 
-                  -if (typeof liabilityPath !== 'undefined' && liabilityPath)
-                    a.button(href='private/generalLiability/file.dat', download='') Download
-                  -else
-                    p Null
-                td
-                  -if (typeof paymentPath !== 'undefined' && paymentPath)
-                    a.button(href='private/paymentAuthorization/file.dat', download='') Download
-                  -else
-                    p Null
-                td
-                  -if (typeof datee !== 'undefined' && datee)
-                    !{datee}
-                  -else
-                    p Null
-                tr
-              - }
+        input.live-search-box(type='text', style='width: 250px;font-size: 18px; appearance: none; box-shadow: none; border-radius: 5px; height:30px; padding-left: 10px; border: solid 1px gainsboro; transition: box-shadow 0.3s, border 0.3s;', placeholder='search')
+        br
+        br
+        .live-search-list
+          table#keywords(cellspacing='10', cellpadding='0')
+            thead
+              tr
+                th
+                  span Contract ID
+                th
+                  span Contractor Name
+                th
+                  span Subcontractor Agreement
+                th
+                  span Subcontractor Contact
+                th
+                  span Statement of Work
+                th
+                  span W-9
+                th
+                  span General Liability
+                th
+                  span Payment Authorization
+                th
+                  span Date
+            tbody
+              tr
+                - for( var i = 0; i < results.length; i++ ) {
+                  - var contrID = results[i].contract_ID;
+                  - var contrName = results[i].contact_name
+                  - var sagreePath = results[i].sagreement_form_path
+                  - var scontactPath = results[i].scontact_form_path
+                  - var sowPath = results[i].sow_form_path
+                  - var w9Path = results[i].w9_form_path
+                  - var liabilityPath = results[i].liability_form_path
+                  - var paymentPath = results[i].payment_form_path
+                  - var datee = results[i].date
+                  td 
+                    -if (typeof contrID !== 'undefined' && contrID)
+                      !{contrID}
+                    -else
+                      p Null
+                  td
+                    -if (typeof contrName !== 'undefined' && contrName)
+                      !{contrName}
+                    -else
+                      p Null
+                  td 
+                    -if (typeof sagreePath !== 'undefined' && sagreePath)
+                      a.button(href='private/subcontractorAgreement/file.dat', download='') Download
+                    -else
+                      p Null
+                  td 
+                    -if (typeof scontactPath !== 'undefined' && scontactPath)
+                      a.button(href='private/subcontractorContact/file.dat', download='') Download
+                    -else
+                      p Null
+                  td
+                    -if (typeof sowPath !== 'undefined' && sowPath)
+                      a.button(href='private/statementOfWork/file.dat', download='') Download
+                    -else
+                      p Null
+                  td
+                    -if (typeof w9Path !== 'undefined' && w9Path)
+                      a.button(href='private/w9/file.dat', download='') Download
+                    -else
+                      p Null
+                  td 
+                    -if (typeof liabilityPath !== 'undefined' && liabilityPath)
+                      a.button(href='private/generalLiability/file.dat', download='') Download
+                    -else
+                      p Null
+                  td
+                    -if (typeof paymentPath !== 'undefined' && paymentPath)
+                      a.button(href='private/paymentAuthorization/file.dat', download='') Download
+                    -else
+                      p Null
+                  td
+                    -if (typeof datee !== 'undefined' && datee)
+                      !{datee}
+                    -else
+                      p Null
+                  tr
+                - }
         #norm
 
